@@ -1,8 +1,3 @@
-variable "resource_group_deployment_name" {
-  type        = string
-  description = "Deployment name of resource group"
-}
-
 variable "resource_group_name" {
   type        = string
   description = "The name of resource group"
@@ -11,11 +6,6 @@ variable "resource_group_name" {
 variable "resource_group_location" {
   type        = string
   description = "Location of resource group"
-}
-
-variable "Service_plan_deployment_name" {
-  type        = string
-  description = "Deployment name of service plan"
 }
 
 variable "Service_plan_name" {
@@ -41,11 +31,6 @@ variable "os_type" {
 variable "sku_name" {
   type        = string
   description = "The SKU name of Service Plan"
-}
-
-variable "web_app_deployment_name" {
-  type        = string
-  description = "Deployment name of Web App"
 }
 
 variable "web_app_name" {

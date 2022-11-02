@@ -1,11 +1,11 @@
 # creates a resource group
-resource "azurerm_resource_group" "var.resource_group_deployment_name" {
+resource "azurerm_resource_group" "resource_group_deployment" {
  name     = var.resource_group_name
  location = var.resource_group_location
 }
 
 # creates App service plans
-resource "azurerm_service_plan" "var.service_plan_deployment_name" {
+resource "azurerm_service_plan" "service_plan_deployment" {
   name                = var.Service_plan_name
   location            = var.Service_plan_location
   resource_group_name = var.Service_plan_resource_group_name
@@ -19,12 +19,13 @@ resource "azurerm_service_plan" "var.service_plan_deployment_name" {
 #B2 = 200 total ACU (Azure_compute_units), 3.5 GB of memory, A-series compute equivalent, 25.55 USD/Month (Equivalent)
 
 
-# Creates windows web app
-resource "azurerm_windows_web_app" "var.web_app_deployment_name" {
-  name                   = var.web_app_name
-  location               = var.web_app_location
-  resource_group_name    = var.web_app_resource_group_name
-  service_plan_id        = var.service_plan_id
-  
+# Creates Windows web app
+resource "azurerm_windows_web_app" "Windows_web_app_deployment" {
+  name                = var.web_app_name
+  location            = var.web_app_location
+  resource_group_name = var.web_app_resource_group_name
+  service_plan_id     = azurerm_service_plan.service_plan_deployment.id
+
   site_config {}
+  
 }
