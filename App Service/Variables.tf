@@ -13,16 +13,6 @@ variable "Service_plan_name" {
   description = "Name of service plan"
 }
 
-variable "Service_plan_location" {
-  type        = string
-  description = "Location of Service plan"
-}
-
-variable "Service_plan_resource_group_name" {
-  type        = string
-  description = "Resource group of service plan"
-}
-
 variable "os_type" {
   type        = string
   description = "The OS type for service plan"
@@ -36,16 +26,6 @@ variable "sku_name" {
 variable "web_app_name" {
   type        = string
   description = "Name of Web App"
-}
-
-variable "web_app_location" {
-  type        = string
-  description = "Location of Web App"
-}
-
-variable "web_app_resource_group_name" {
-  type        = string
-  description = "Resource group of Web App"
 }
 
 variable "service_plan_id" {

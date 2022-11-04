@@ -7,8 +7,8 @@ resource "azurerm_resource_group" "resource_group_deployment" {
 # creates App service plans
 resource "azurerm_service_plan" "service_plan_deployment" {
   name                = var.Service_plan_name
-  location            = var.Service_plan_location
-  resource_group_name = var.Service_plan_resource_group_name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
   os_type             = var.os_type
   sku_name            = var.sku_name
 }
@@ -22,9 +22,9 @@ resource "azurerm_service_plan" "service_plan_deployment" {
 # Creates Windows web app
 resource "azurerm_windows_web_app" "Windows_web_app_deployment" {
   name                = var.web_app_name
-  location            = var.web_app_location
-  resource_group_name = var.web_app_resource_group_name
-  service_plan_id     = azurerm_service_plan.service_plan_deployment.id
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
+  service_plan_id     = var.service_plan_id 
 
   site_config {}
   
